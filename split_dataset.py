@@ -49,3 +49,13 @@ def move_patient_files(patient_list, split):
                 os.path.join(LBL_DIR, lbl_file),
                 os.path.join(LBL_DIR, split, lbl_file)
             )
+
+move_patient_files(train_patients, "train")
+move_patient_files(val_patients, "val")
+move_patient_files(test_patients, "test")
+
+print(f"Train Patients: {len(train_patients)}")
+print(f"Val Patients: {len(val_patients)}")
+print(f"Test Patients: {len(test_patients)}")
+
+print("Dataset split complete.")

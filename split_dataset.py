@@ -21,3 +21,31 @@ for file in os.listdir(IMG_DIR):
 
 patient_ids = list(patients.keys())
 random.shuffle(patient_ids)
+
+n = len(patient_ids)
+
+train_patients = patient_ids[:int(0.7 * n)]
+val_patients = patient_ids[int(0.7 * n):int(0.9 * n)]
+test_patients = patient_ids[int(0.9 * n):]
+
+for split in ["train", "val", "test"]:
+    os.makedirs(os.path.join(IMG_DIR, split), exist_ok=True)
+    os.makedirs(os.path.join(LBL_DIR, split), exist_ok=True)
+
+def move_patient_files(patient_list, split):
+
+    for patient in patient_list:
+
+        for img_file in patients[patient]:
+
+            lbl_file = img_file.replace(".png", ".txt")
+
+            shutil.move(
+                os.path.join(IMG_DIR, img_file),
+                os.path.join(IMG_DIR, split, img_file)
+            )
+
+            shutil.move(
+                os.path.join(LBL_DIR, lbl_file),
+                os.path.join(LBL_DIR, split, lbl_file)
+            )

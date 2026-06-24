@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 ROOT = "/home/hornet/dataset_folders/archive/BraTS2021_Training_Data"
 
-OUT_ROOT = "/home/hornet/dataset_folders/dataset_multibox"
+OUT_ROOT = "/home/hornet/dataset_folders/dataset_multibox_v1"
 
 OUT_IMG = os.path.join(OUT_ROOT, "images")
 OUT_LBL = os.path.join(OUT_ROOT, "labels")

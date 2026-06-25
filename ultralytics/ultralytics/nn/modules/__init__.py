@@ -76,6 +76,7 @@ from .conv import (
     RepConv,
     SpatialAttention,
 )
+from .cbam import OriginalCBAM
 from .head import (
     OBB,
     OBB26,
@@ -166,6 +167,7 @@ __all__ = (
     "MLPBlock",
     "MSDeformAttn",
     "MaxSigmoidAttnBlock",
+    "OriginalCBAM",
     "Pose",
     "Pose26",
     "Proto",

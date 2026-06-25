@@ -89,14 +89,20 @@ class OriginalCBAM(nn.Module):
 
     def __init__(
         self,
-        channels: int,
+        c1: int,
+        c2: int = None,
         reduction: int = 16,
         kernel_size: int = 7,
     ):
         super().__init__()
 
+        if c2 is None:
+            c2 = c1
+
+        assert c1 == c2, "OriginalCBAM does not change channel dimensions."
+
         self.channel_attention = ChannelAttention(
-            channels,
+            c1,
             reduction=reduction,
         )
 

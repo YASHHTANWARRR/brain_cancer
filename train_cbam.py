@@ -30,7 +30,7 @@ def main():
         batch=4,
         device=DEVICE,
         workers=4,
-        amp=True,
+        amp=False,
         cache=False,
         project="runs",
         name="yolov8n_cbam",
